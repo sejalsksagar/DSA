@@ -105,11 +105,11 @@ void Matrix :: isLowerTriangular()
 		return;
 	}
 
-    for(int i=0; i<row; i++)
+    for(int i=0; i<row-1; i++)
     {
-        for(int j=i+1; j<row; j++)
+        for(int j=i+1; j<col; j++)
         {
-            if(j>i && matrix[i][j]!=0)
+            if(matrix[i][j]!=0)
             {
                 cout<<"is NOT Lower Triangular";
                 return;
@@ -127,9 +127,7 @@ void Matrix :: transpose(Matrix A)
     for(int i=0; i<row; i++)
     {
         for(int j=0; j<col; j++)
-        {
         	matrix[i][j] = A.matrix[j][i];
-        }
     }
 }
 
