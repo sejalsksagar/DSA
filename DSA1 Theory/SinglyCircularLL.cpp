@@ -124,19 +124,20 @@ void SCLL :: remove()
     cin>>d;
 
     node *ptr = head;
-    node *prev = head;
+    node *prev = head;      
 
-    //If SCLL contains only a single node
-    if((head->data == d) && (head->next == head))
-        head = NULL;
-
-    else if(head->data == d) //if head node to be deleted
+    if(head->data == d) //if head node to be deleted
     {
-        while(prev->next != head)
+        if(head->next == head) //single node in SCLL
+            head = NULL;
+        else
+        {
+            while(prev->next != head)
              prev = prev->next; 
 
-        head = ptr->next;
-        prev->next = head;
+            head = ptr->next;
+            prev->next = head;
+        }  
     }   
     else
     {
