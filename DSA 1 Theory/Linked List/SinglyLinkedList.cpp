@@ -31,6 +31,7 @@ class linked_list
         void insert();  //O(n)
         void remove();  //O(n)
         void display(); //O(n)
+		void reverse(); //O(n)
 };
 
 void linked_list :: create()
@@ -55,7 +56,7 @@ void linked_list :: create()
             ptr->next =  tmp;
         }
 
-        cout<<"\nAdd another node (y/n): ";
+        cout<<"Add another node (y/n): ";
         cin>>ch;
     }while(ch!='n');
 }
@@ -153,6 +154,24 @@ void linked_list :: display()
     }
     cout<<"NULL";
 }
+
+void linked_list :: reverse()
+{
+	node *curr = head;
+	node *cprev = NULL;
+	node *cnext = NULL;
+
+	while(curr != NULL)
+	{
+		cnext = curr->next;
+		curr->next = cprev;
+		cprev = curr;
+		curr = cnext;
+	}
+	head = cprev;
+	cout<<"\nSLL has been reversed.";
+}
+
 int main()
 {
     int ch;
@@ -164,6 +183,7 @@ int main()
         cout<<"\n(2) Insert";
         cout<<"\n(3) Delete";
         cout<<"\n(4) Display";
+		cout<<"\n(5) Reverse SLL";
         cout<<"\nEnter your choice: ";
         cin>>ch;
         switch(ch){
@@ -181,6 +201,9 @@ int main()
 
             case 4: ll.display();
                     break;
+
+			case 5: ll.reverse();
+					break;
 
             default: cout<<"\nInvalid choice.";
         }
