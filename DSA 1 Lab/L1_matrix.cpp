@@ -1,5 +1,4 @@
 /*
- * matrix.cpp
  *
  * DSA 1 Lab #1:
 		Write C++ program to perform following operations on matrices:
