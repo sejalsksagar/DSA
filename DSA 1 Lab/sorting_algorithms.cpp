@@ -143,16 +143,16 @@ void selection_sort_AO(float *arr, int N)
 
 void selection_sort_DO(float *arr, int N)
 {
-	int i_min;
+	int i_max;
 	for(int i=0; i<N-1; i++)
 	{
-		i_min = i;
+		i_max = i;
 		for(int j=i+1; j<N; j++)
 		{
-			if(arr[j] > arr[i_min])
-				i_min = j;
+			if(arr[j] > arr[i_max])
+				i_max = j;
 		}
-		swap(&arr[i], &arr[i_min]);
+		swap(&arr[i], &arr[i_max]);
 	}
 	cout<<"\nDescending order: ";
 }
