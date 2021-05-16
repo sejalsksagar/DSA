@@ -177,28 +177,28 @@ void bubble_sort_AO_SLL(node **head, int N)
     node **ptr;
     node *ptr1, *ptr2;
     
-	for(int i=0; i<N; i++)
-	{
-        ptr = head;
-        swaps = false;
+    for(int i=0; i<N; i++)
+    {
+	ptr = head;
+	swaps = false;
 
-		for(int j=0; j<N-1-i; j++)
-		{
+	for(int j=0; j<N-1-i; j++)
+	{
             ptr1 = *ptr;
             ptr2 = ptr1->next;
 
-			if(ptr1->data > ptr2->data)
+	   if(ptr1->data > ptr2->data)
             {
                 *ptr = swap_adj_nodes(ptr1, ptr2);
                 swaps = true;
             }
 
             ptr = &(*ptr)->next;
-		}
+	}
 
         if(!swaps)
             break;
-	}
+    }
 	cout<<"\nAscending order: ";
 }
 
@@ -208,32 +208,33 @@ void bubble_sort_DO_SLL(node **head, int N)
     node **ptr;
     node *ptr1, *ptr2;
     
-	for(int i=0; i<N; i++)
-	{
+    for(int i=0; i<N; i++)
+    {
         ptr = head;
         swaps = false;
 
-		for(int j=0; j<N-1-i; j++)
-		{
+	for(int j=0; j<N-1-i; j++)
+	{
             ptr1 = *ptr;
             ptr2 = ptr1->next;
 
-			if(ptr1->data < ptr2->data)
+	    if(ptr1->data < ptr2->data)
             {
                 *ptr = swap_adj_nodes(ptr1, ptr2);
                 swaps = true;
             }
 
             ptr = &(*ptr)->next;
-		}
+	}
 
         if(!swaps)
             break;
-	}
+    }
 	cout<<"\nDescending order: ";
 }
 
-int main(){
+int main()
+{
 
     cout<<"\n******** BUBBLE SORT **********";
 
