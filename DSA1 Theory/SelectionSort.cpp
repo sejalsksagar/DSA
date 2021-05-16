@@ -234,7 +234,7 @@ int main(){
  * Method	   Best case	  Average case 	    Worst case	    Memory requirement	     Stable            Pros                    Cons
  * --------------------------------------------------------------------------------------------------------------------------------------------------------
  *
- * Selection Sort   omega(n)       theta(n^2)        O(n^2)               No                   No          1.For small list.              1. Inefficient
+ * Selection Sort   omega(n^2)       theta(n^2)        O(n^2)               No                   No          1.For small list.              1. Inefficient
                                                                                                                                               for
                                                                                                            2.Good for partially              large data.
                                                                                                              sorted data.
