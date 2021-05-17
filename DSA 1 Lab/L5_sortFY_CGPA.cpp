@@ -162,64 +162,37 @@ void selection_sort_DO(float *arr, int N)
  * Picks a pivot element & partition list with respect to pivot in to two parts.
  * Recursively solve left &right part.
  */
-int partition_AO(float *arr, int si, int ei)
+int partition_AO_Arr(float *arr, int si, int ei)
 {
 	float pivot = arr[si];
 	int i = si, j = ei;
 	while(i < j)
 	{
-		while(arr[i] < pivot)
-			i++;
-		while(arr[j] > pivot)
-			j--;
+		do{i++;}while(arr[i] < pivot);
+			
+		do{j--;}while(arr[j] > pivot);
+			
 		if(i < j)
 			swap(&arr[i], &arr[j]);
 	}
-	if(j < i)
-		swap(&pivot, &arr[j]);
+	
+	swap(&arr[si], &arr[j]);
 	return j;
 }
 
-void quick_sort_AO(float *arr, int si, int ei)
+void quick_sort_AO_Arr(float *arr, int si, int ei)
 {
 	int mid;
 	if(si < ei)
 	{
-		mid = partition_AO(arr, si, ei);
-		quick_sort_AO(arr, si, mid);
-		quick_sort_AO(arr, mid+1, ei);
+		mid = partition_AO_Arr(arr, si, ei);
+		quick_sort_AO_Arr(arr, si, mid);
+		quick_sort_AO_Arr(arr, mid+1, ei);
 	}
 }
 
 
-int partition_DO(float *arr, int si, int ei)
-{
-	float pivot = arr[si];
-	int i = si, j = ei;
-	while(i < j)
-	{
-		while(arr[i] > pivot)
-			i++;
-		while(arr[j] < pivot)
-			j--;
-		if(i < j)
-			swap(&arr[i], &arr[j]);
-	}
-	if(j < i)
-		swap(&pivot, &arr[j]);
-	return j;
-}
 
-void quick_sort_DO(float *arr, int si, int ei)
-{
-	int mid;
-	if(si < ei)
-	{
-		mid = partition_DO(arr, si, ei);
-		quick_sort_DO(arr, si, mid);
-		quick_sort_DO(arr, mid+1, ei);
-	}
-}
 
 
 //--------------------------------------------------------------------------------------------
@@ -376,9 +349,9 @@ int main(){
 				quick_sort_AO(fy.arr, 0, fy.N-1);
 				cout<<"\nAscending order: ";
 				fy.display();
-				quick_sort_DO(fy.arr, 0, fy.N-1);
-				cout<<"\nDescending order: ";
-				fy.display();
+// 				quick_sort_DO(fy.arr, 0, fy.N-1);
+// 				cout<<"\nDescending order: ";
+// 				fy.display();
 				break;
 
 	   case 5: cout<<"\n********** MERGE SORT ************";
