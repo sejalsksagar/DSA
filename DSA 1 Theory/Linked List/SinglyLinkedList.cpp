@@ -91,7 +91,7 @@ void linked_list :: insert()
             prev = ptr;
             ptr = ptr->next;
 
-            if(ptr==NULL)
+            if(ptr==NULL && i!=pos-1)
             {
                 cout<<"\nInvalid position.";
                 return;
