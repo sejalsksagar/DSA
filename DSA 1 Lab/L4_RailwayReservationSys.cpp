@@ -165,7 +165,7 @@ void queue :: display()
 
 int main()
 {
-	passenger *C; //array of object of passengers with confirmed tickets
+    passenger *C; //array of object of passengers with confirmed tickets
     queue WL; //queue of passengers in waiting list
     int ch, tot;
     static int i = 0;
@@ -191,43 +191,43 @@ int main()
         {
             case 0: cout<<"\n******* PROGRAM ENDED ********";
                     break;
-            case 1: if(i < tot)
-					{
-						C[i].accept();
-						cout<<"\nYour ticket is booked.";
-						C[i].display();
-						i++;
-					}
+            case 1: 	if(i < tot)
+			{
+				C[i].accept();
+				cout<<"\nYour ticket is booked.";
+				C[i].display();
+				i++;
+			}
             		else if(WL.is_full() == 1)
             			cout<<"\n Waiting List is full.";
-					else{
-						cout<<"\nAll confirmed tickets are booked. Your ticket will be added to the waiting list.";
-						WL.enqueue();
-					}
+			else{
+				cout<<"\nAll confirmed tickets are booked. Your ticket will be added to the waiting list.";
+				WL.enqueue();
+			}
                     break;
-            case 2: int PNR, pos;
-					cout<<"\nEnter the PNR no. of the ticket to be cancelled: ";
-					cin>>PNR;
-					pos = passenger::search_PNR(C , tot , PNR);
-					if(pos != -1)
-					{
-						if(!WL.is_empty())
-						{
-							p = WL.dequeue();
-							C[pos] = p;
-							cout<<"\n\nConfirmed next ticket on waiting list: ";
-							C[pos].display();
-						}
-					}
-					else //pos = -1
-						cout<<"\nInvalid PNR !";
+            case 2: 	int PNR, pos;
+			cout<<"\nEnter the PNR no. of the ticket to be cancelled: ";
+			cin>>PNR;
+			pos = passenger::search_PNR(C , tot , PNR);
+			if(pos != -1)
+			{
+				if(!WL.is_empty())
+				{
+					p = WL.dequeue();
+					C[pos] = p;
+					cout<<"\n\nConfirmed next ticket on waiting list: ";
+					C[pos].display();
+				}
+			}
+			else //pos = -1
+				cout<<"\nInvalid PNR !";
                     break;
-            case 3: for(int i = 0 ; i<tot ; i++)
-					{
-						C[i].display();
-						cout<<"\n-------------------------------------------";
-					}
-					break;
+            case 3: 	for(int i = 0 ; i<tot ; i++)
+			{
+				C[i].display();
+				cout<<"\n-------------------------------------------";
+			}
+			break;
 
             default:cout<<"Invalid choice.";
         }
