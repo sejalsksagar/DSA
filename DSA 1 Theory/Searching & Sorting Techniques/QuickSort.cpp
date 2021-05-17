@@ -54,15 +54,15 @@ int partition_AO_Arr(float *arr, int si, int ei)
 	int i = si, j = ei;
 	while(i < j)
 	{
-		while(arr[i] < pivot)
-			i++;
-		while(arr[j] > pivot)
-			j--;
+		do{i++;}while(arr[i] < pivot);
+			
+		do{j--;}while(arr[j] > pivot);
+			
 		if(i < j)
 			swap(&arr[i], &arr[j]);
 	}
-	if(j < i)
-		swap(&pivot, &arr[j]);
+	
+	swap(&arr[si], &arr[j]);
 	return j;
 }
 
@@ -78,34 +78,34 @@ void quick_sort_AO_Arr(float *arr, int si, int ei)
 }
 
 
-int partition_DO_Arr(float *arr, int si, int ei)
-{
-	float pivot = arr[si];
-	int i = si, j = ei;
-	while(i < j)
-	{
-		while(arr[i] > pivot)
-			i++;
-		while(arr[j] < pivot)
-			j--;
-		if(i < j)
-			swap(&arr[i], &arr[j]);
-	}
-	if(j < i)
-		swap(&pivot, &arr[j]);
-	return j;
-}
+// int partition_DO_Arr(float *arr, int si, int ei)
+// {
+// 	float pivot = arr[si];
+// 	int i = si, j = ei;
+// 	while(i < j)
+// 	{
+// 		while(arr[i] > pivot)
+// 			i++;
+// 		while(arr[j] < pivot)
+// 			j--;
+// 		if(i < j)
+// 			swap(&arr[i], &arr[j]);
+// 	}
+// 	if(j < i)
+// 		swap(&pivot, &arr[j]);
+// 	return j;
+// }
 
-void quick_sort_DO_Arr(float *arr, int si, int ei)
-{
-	int mid;
-	if(si < ei)
-	{
-		mid = partition_DO_Arr(arr, si, ei);
-		quick_sort_DO_Arr(arr, si, mid);
-		quick_sort_DO_Arr(arr, mid+1, ei);
-	}
-}
+// void quick_sort_DO_Arr(float *arr, int si, int ei)
+// {
+// 	int mid;
+// 	if(si < ei)
+// 	{
+// 		mid = partition_DO_Arr(arr, si, ei);
+// 		quick_sort_DO_Arr(arr, si, mid);
+// 		quick_sort_DO_Arr(arr, mid+1, ei);
+// 	}
+// }
 
 
 int main(){
@@ -120,8 +120,8 @@ int main(){
 
     quick_sort_AO_Arr(A.arr, 0, A.N-1 );
     A.display();
-    quick_sort_DO_Arr(A.arr, 0, A.N-1 );
-    A.display();
+//     quick_sort_DO_Arr(A.arr, 0, A.N-1 );
+//     A.display();
 	
 	return 0;
 }
