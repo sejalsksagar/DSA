@@ -119,7 +119,7 @@ void dll :: insert()
             dprev = ptr;
             ptr = ptr->next;
 
-            if(ptr == NULL)
+            if(ptr == NULL && i!=pos-1)
             {
                 cout<<"\nInvalid position.";
                 return;
@@ -129,7 +129,8 @@ void dll :: insert()
         dprev->next = tmp;
         tmp->next = ptr;
         tmp->prev = dprev;
-        ptr->prev = tmp;
+        if(ptr != NULL)
+            ptr->prev = tmp;
     } 
     
     cout<<"\nNode inserted at position "<<pos;
@@ -178,7 +179,7 @@ void dll :: del_by_data()
 
 void dll :: reverse()
 {
-    if(is_empty() == 1)
+    if(is_empty())
     {
         cout<<"List is empty";
         return;
