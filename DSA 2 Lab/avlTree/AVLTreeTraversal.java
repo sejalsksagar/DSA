@@ -224,6 +224,5 @@ public class AVLTreeTraversal {
  * display.....................O(n)
  * RR, LL, RL, LR..............O(1)
  * balanceFactor...............O(1)
- * height......................O(1)
  */
 
