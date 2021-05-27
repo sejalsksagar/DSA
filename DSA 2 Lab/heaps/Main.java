@@ -1,7 +1,5 @@
 /*
- * Roll number:	2372
- * Name: Sejal Kshirsagar
- * C number: C22019221374
+ * 2372 Sejal Kshirsagar
  *  
  * DSA 2 Lab #5 26/05/2021
  * Problem Statement:
